@@ -16,20 +16,21 @@ import cn.k8s.feign.entity.UserEntity;
 @RestController
 @RequestMapping(path = "/users")
 public class UserController {
-	@Autowired UserClient userClient;
+	@Autowired
+	UserClient userClient;
 
 	@GetMapping
-    List<UserEntity> getUsers(){
+	List<UserEntity> getUsers() {
 		return userClient.getUsers();
 	}
 
-    @GetMapping(path = "/{id}")
-    UserEntity getUser(@PathVariable("id") Integer id) {
-    	return userClient.getUser(id);
-    }
-    
-    @PostMapping
+	@GetMapping(path = "/{id}")
+	UserEntity getUser(@PathVariable("id") Integer id) {
+		return userClient.getUser(id);
+	}
+
+	@PostMapping
 	public UserEntity addUser(@RequestBody UserEntity user) {
-    	return userClient.addUser(user);
-    }
+		return userClient.addUser(user);
+	}
 }

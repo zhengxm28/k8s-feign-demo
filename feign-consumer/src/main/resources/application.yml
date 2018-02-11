@@ -1,0 +1,6 @@
+server:
+  context-path: /consumer
+  port: 9000
+user-service:
+  ip: localhost
+  port: 9001

@@ -1,0 +1,6 @@
+server:
+  context-path: /provider
+  port: 9001
+spring:
+  application:
+    name: user-service

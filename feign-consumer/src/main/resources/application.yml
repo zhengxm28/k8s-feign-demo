@@ -1,6 +1,15 @@
 server:
   context-path: /consumer
   port: 9000
-user-service:
-  ip: localhost
-  port: 9001
+spring:
+  application:
+    name: user-consumer
+  cloud:
+    consul:
+      host: 10.48.114.61
+      port: 8500
+      discovery:
+        register: false
+feign:
+  hystrix:
+    enabled: true

@@ -14,4 +14,5 @@ public class UserEntity {
 	private String name;
 	private int age;
 	private String sex;
+	private int port;
 }

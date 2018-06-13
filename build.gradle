@@ -73,20 +73,29 @@ project(':feign-common') {
 }
 
 project(':feign-provider') {
+	dependencyManagement {
+        imports {
+            mavenBom 'org.springframework.cloud:spring-cloud-consul-dependencies:1.3.3.RELEASE'
+        }
+    }
     dependencies {
     	compile project(':feign-common')
+    	compile("org.springframework.cloud:spring-cloud-starter-consul-discovery")
     }
 }
 
 project(':feign-consumer') {
     dependencyManagement {
         imports {
-            mavenBom 'org.springframework.cloud:spring-cloud-netflix:1.4.3.RELEASE'
+        	mavenBom 'org.springframework.cloud:spring-cloud-netflix:1.4.4.RELEASE'
+        	mavenBom 'org.springframework.cloud:spring-cloud-consul-dependencies:1.3.3.RELEASE'
         }
     }
     dependencies {
     	compile project(':feign-common')
     	compile("org.springframework.cloud:spring-cloud-starter-feign")
+    	compile("org.springframework.cloud:spring-cloud-starter-consul-discovery")
+    	compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')
     }
 }
 

@@ -1,6 +1,12 @@
 server:
-  context-path: /provider
-  port: 9001
+  port: 9003
 spring:
   application:
     name: user-service
+  cloud:
+    consul:
+      host: 10.48.114.61
+      port: 8500
+      discovery:
+        healthCheckPath: /health
+        healthCheckInterval: 10s

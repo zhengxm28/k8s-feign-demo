@@ -6,7 +6,7 @@ spring:
     name: user-consumer
   cloud:
     consul:
-      host: 10.48.114.61
+      host: localhost
       port: 8500
       discovery:
         register: false
